@@ -44,7 +44,10 @@ class _Pages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navegationModel = Provider.of<TabsNavegationModel>(context);
+
     return PageView(
+      controller: navegationModel.pageController,
       physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
         Container(color: Colors.red),
