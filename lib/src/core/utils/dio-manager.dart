@@ -8,13 +8,14 @@ class DioManager {
 
   // Methods
   Future<dynamic> getHttp(base_url, endpoint) async {
-    var response;
+    Response response;
     try {
       response = await Dio().get('$base_url/$endpoint');
+      return response;
     } catch (e) {
       print(e);
     }
 
-    return response;
+    return;
   }
 }

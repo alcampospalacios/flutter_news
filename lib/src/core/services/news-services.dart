@@ -16,10 +16,10 @@ class NewsServices extends ChangeNotifier with DioManager {
   // Methods
   getTopHeadlines() {
     this.getHttp(_base_url, _endpoint).then((value) {
-      print('res: $value');
-    });
-    // final newsResponse = NewsModel.fromJson(res.toString());
+      final newsResponse = NewsModel.fromJson(value.toString());
 
-    // print('fromJson: $newsResponse');
+      this.headlines.addAll(newsResponse.articles);
+      notifyListeners();
+    });
   }
 }
