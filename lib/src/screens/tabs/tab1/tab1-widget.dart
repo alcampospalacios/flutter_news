@@ -34,8 +34,10 @@ class _CardImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(noti.urlToImage),
-    );
+        child: FadeInImage(
+      placeholder: AssetImage('assets/images/loading.gif'),
+      image: NetworkImage(noti.urlToImage),
+    ));
   }
 }
 
