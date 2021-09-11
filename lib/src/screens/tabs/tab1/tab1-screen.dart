@@ -10,6 +10,8 @@ class Tab1Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     final newsServices = Provider.of<NewsServices>(context);
 
-    return Container(child: ACPListNewsWidget(news: newsServices.headlines));
+    return newsServices.headlines.length != 0
+        ? Container(child: ACPListNewsWidget(news: newsServices.headlines))
+        : Center(child: CircularProgressIndicator());
   }
 }

@@ -21,9 +21,59 @@ class Notice extends StatelessWidget {
         ),
         _CardImage(
           noti: noti,
-        )
+        ),
+        _CardDrescription(noti: noti),
+        SizedBox(
+          height: 10,
+        ),
+        Divider(),
+        _CardFooter()
       ],
     );
+  }
+}
+
+class _CardFooter extends StatelessWidget {
+  const _CardFooter({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RawMaterialButton(
+            onPressed: () {},
+            fillColor: customTheme.accentColor,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Icon(Icons.star_border),
+          ),
+          SizedBox(
+            width: 15,
+          ),
+          RawMaterialButton(
+            onPressed: () {},
+            fillColor: Colors.blue,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Icon(Icons.more),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CardDrescription extends StatelessWidget {
+  final Article noti;
+  const _CardDrescription({Key? key, required this.noti}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: Text((noti.description != null) ? noti.description : ''));
   }
 }
 
@@ -33,11 +83,24 @@ class _CardImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _screenSize = MediaQuery.of(context).size;
+
     return Container(
-        child: FadeInImage(
-      placeholder: AssetImage('assets/images/loading.gif'),
-      image: NetworkImage(noti.urlToImage),
-    ));
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
+        child: Container(
+            child: (noti.urlToImage != null)
+                ? FadeInImage(
+                    placeholder: AssetImage('assets/images/loading.gif'),
+                    image: NetworkImage(noti.urlToImage),
+                  )
+                : Image(
+                    image: AssetImage('assets/images/no-image.png'),
+                  )),
+      ),
+    );
   }
 }
 
