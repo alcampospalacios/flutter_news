@@ -18,7 +18,7 @@ class Tab2Screen extends StatelessWidget {
       Expanded(
           child: newsServices.getArticlesSelectedCategory.length != 0
               ? ACPListNewsWidget(
-                  news: newsServices.getArticlesSelectedCategory!,
+                  news: newsServices.getArticlesSelectedCategory,
                 )
               : Center(child: CircularProgressIndicator()))
     ])));
