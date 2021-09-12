@@ -14,7 +14,6 @@ class Notice extends StatelessWidget {
       children: <Widget>[
         _CardTopBar(
           noti: noti,
-          index: index,
         ),
         _CardTitle(
           noti: noti,
@@ -122,9 +121,8 @@ class _CardTitle extends StatelessWidget {
 
 class _CardTopBar extends StatelessWidget {
   final Article noti;
-  final int index;
-  const _CardTopBar({Key? key, required this.noti, required this.index})
-      : super(key: key);
+
+  const _CardTopBar({Key? key, required this.noti}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -133,10 +131,6 @@ class _CardTopBar extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       child: Row(
         children: [
-          Text(
-            '${index + 1}',
-            style: TextStyle(color: customTheme.accentColor),
-          ),
           Text(
             '${noti.source.name}',
             style: TextStyle(color: customTheme.accentColor),
