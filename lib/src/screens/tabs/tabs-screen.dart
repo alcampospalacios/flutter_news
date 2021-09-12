@@ -35,7 +35,8 @@ class _NavegationBarTabs extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: 'Para ti'),
-          BottomNavigationBarItem(icon: Icon(Icons.public), label: 'Para ti')
+          BottomNavigationBarItem(
+              icon: Icon(Icons.public), label: 'Encabezados')
         ]);
   }
 }

@@ -1,10 +1,11 @@
 <h1 align="center">
-  News app => onDevelop
+  News app
 </h1>
 
-<!-- <h2 align="center">
-  <img src="" height="400" />
-</h2> -->
+<h2 align="center">
+  <img src="./demo1.png" height="400" />
+  <img src="./demo2.png" height="400" />
+</h2>
 
 <br />
 
@@ -12,6 +13,7 @@
 
 - dio: ^4.0.0
 - provider: ^5.0.0
+- font_awesome_flutter: ^9.1.0
 
 ## Resources
 
